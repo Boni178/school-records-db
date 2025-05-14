@@ -1,9 +1,12 @@
+/*QUESTION 1*/
+
+/* Department Table*/
 CREATE TABLE Department (
     departmentID INT PRIMARY KEY,
     departmentName VARCHAR(300),
     departmentHead VARCHAR(300)
 );
-
+/* Course Table*/
 CREATE TABLE Course (
     courseID INT PRIMARY KEY,
     courseName VARCHAR(300),
@@ -11,6 +14,7 @@ CREATE TABLE Course (
     departmentID INT,
     FOREIGN KEY (departmentID) REFERENCES Department(departmentID)
 );
+/* Students Table*/
 CREATE TABLE Student (
     studentID INT PRIMARY KEY,
     studentName VARCHAR(300),
@@ -19,6 +23,7 @@ CREATE TABLE Student (
     studentNumber VARCHAR(300),
     studentStatus VARCHAR(300)
 );
+/* Enrollment Table*/
 CREATE TABLE Enrollment (
     enrollmentID INT PRIMARY KEY,
     studentID INT,
@@ -28,8 +33,9 @@ CREATE TABLE Enrollment (
     UNIQUE(studentID, courseID)  
     FOREIGN KEY (studentID) REFERENCES Student(studentID),
     FOREIGN KEY (courseID) REFERENCES Course(courseID),
-   
 );
+
+/* Lecturer Table*/
 CREATE TABLE Lecturer (
     lecturerID INT PRIMARY KEY,
     lecturerName VARCHAR(300),
@@ -38,13 +44,14 @@ CREATE TABLE Lecturer (
     departmentID INT,
     FOREIGN KEY (departmentID) REFERENCES Department(departmentID)
 );
+/* Password Table*/
 CREATE TABLE Password (
     passwordID INT PRIMARY KEY,
     studentID INT,
     password_hash VARCHAR(300),
     FOREIGN KEY (studentID) REFERENCES Student(studentID)
 );
-
+/* Funding Table*/
 CREATE TABLE Funding (
     fundingID INT PRIMARY KEY,
     fundingType VARCHAR(300),
@@ -52,6 +59,7 @@ CREATE TABLE Funding (
     fundingStatus VARCHAR(300),
     FOREIGN KEY (studentID) REFERENCES Student(studentID)
 );
+/* Grades Table*/
 CREATE TABLE Grades (
     studentID INT,
     courseID INT,
@@ -60,12 +68,14 @@ CREATE TABLE Grades (
     FOREIGN KEY (studentID) REFERENCES Student(studentID),
     FOREIGN KEY (courseID) REFERENCES Course(courseID)
 );
+/* Fees Table*/
 CREATE TABLE Fees (
     feesID INT PRIMARY KEY,
     feeStatus VARCHAR(300),
     studentID INT,
     FOREIGN KEY (studentID) REFERENCES Student(studentID)
 );
+/* Extracurricular Table*/
 CREATE TABLE Extracurriculars (
     activityID INT PRIMARY KEY,
     activityName VARCHAR(300),
@@ -74,6 +84,7 @@ CREATE TABLE Extracurriculars (
     end_date DATE,
     FOREIGN KEY (studentID) REFERENCES Student(studentID)
 );
+/* Diciplinary Table*/
 CREATE TABLE DisciplineRecords (
     incidentID INT PRIMARY KEY,
     studentID INT,
@@ -82,6 +93,7 @@ CREATE TABLE DisciplineRecords (
     action_taken VARCHAR(300),
     FOREIGN KEY (studentID) REFERENCES Student(studentID)
 );
+/* Books Table*/
 CREATE TABLE Books (
     bookID INT PRIMARY KEY,
     title VARCHAR(300) NOT NULL,
@@ -91,6 +103,7 @@ CREATE TABLE Books (
     departmentID INT,
     FOREIGN KEY (departmentID) REFERENCES Department(departmentID)
 );
+/* Library Records Table*/
 CREATE TABLE LibraryRecords (
     libraryID INT PRIMARY KEY,
     studentID INT,
