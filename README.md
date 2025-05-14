@@ -12,7 +12,7 @@ How to Set Up & Run
 
 
 Install MySQL Server if it's not already installed.
-Clone this repository:
+Clone this repository:https://github.com/Boni178/school-records-db.git
 Open a MySQL client (such as MySQL Workbench or command line).
 Import the .sql file into your MySQL server.
 The database schema and all tables will be created automatically.
