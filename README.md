@@ -21,4 +21,4 @@ The database schema and all tables will be created automatically.
 ERD (Entity Relationship Diagram)
 
 
-![ERD Diagram](./erd-diagram.png)
+![ERD Diagram](./(https://github.com/Boni178/school-records-db/blob/main/studentRecords_ERD.png)
